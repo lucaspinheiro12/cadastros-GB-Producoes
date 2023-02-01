@@ -13,7 +13,7 @@ function Pessoa() {
     useEffect(() => {
 
             let nome = busca;
-            axios.get(`${BASE_URL}gbp/pessoa/filtrar?nome=${nome}` ).then(response => {
+            axios.get(`${BASE_URL}/gbp/pessoa/filtrar?nome=${nome}` ).then(response => {
                 setPessoas(response.data);
                 console.log(pessoas)
              })
