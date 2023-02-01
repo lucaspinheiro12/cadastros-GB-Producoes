@@ -14,7 +14,7 @@ export const Mascara = ({value, onchange, classname, type}) =>{
     );
 };
 
-export const MascaraData = ({value, onchange,classname, type}) =>{
+export const MascaraData = ({value , onchange,classname, type}) =>{
     return(
         <ReactInputMask
         placeholder="MM/DD/AAAA"

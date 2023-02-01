@@ -1,4 +1,4 @@
-export function isValidCPF(cpf) {
+export function isValidCPF( cpf: string) {
     if (typeof cpf !== "string") return false
     cpf = cpf.replace(/[\s.-]*/igm, '')
     if (
@@ -35,7 +35,7 @@ export function isValidCPF(cpf) {
 
 
 
-export function IsValidaPISPASEP(pis){
+export function IsValidaPISPASEP(pis: string){
 
     pis = pis.replaceAll(/[\s.-]*/igm, '');
     const ftap = "3298765432";
@@ -66,7 +66,7 @@ export function IsValidaPISPASEP(pis){
         resto = parseInt(strResto.slice(1,2));
     }
 
-    if (resto!=(pis.slice(10,11))){
+    if (resto!=parseInt(pis.slice(10,11))){
         return false;
     }
     return true;
