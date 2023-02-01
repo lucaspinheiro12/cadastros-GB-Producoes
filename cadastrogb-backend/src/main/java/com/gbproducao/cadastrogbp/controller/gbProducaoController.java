@@ -40,7 +40,7 @@ public class gbProducaoController extends BaseRestController {
 		return ResponseEntity.ok(pessoa);
 	}
 	
-	@PostMapping("pessoa/inserir")
+	@PostMapping("pessoas/inserir")
 	public ResponseEntity <Pessoa> insert(@RequestBody Pessoa pessoa) {
 		camadaNegocios.insert(pessoa);	  
 		return ResponseEntity.ok(pessoa);
