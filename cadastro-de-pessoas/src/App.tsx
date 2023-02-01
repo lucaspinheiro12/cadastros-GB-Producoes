@@ -60,7 +60,7 @@ function App (){
                                 </div>
                                 <div className="form-group">
                                     <label>CPF: </label> <br/>
-                                    <input type="number" className="form-control" id="cpf" name="cpf" placeholder="000.000.000.00" 
+                                    <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000.00" 
                                     value={cpf}
                                     onChange={(evento) => {setCpf(evento.target.value);}}
                                     required />
@@ -74,14 +74,14 @@ function App (){
                                 </div>
                                 <div className="form-group">
                                     <label>Telefone: </label> <br/>
-                                    <input type="number" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" 
+                                    <input type="text" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" 
                                     value={telefone}
                                     onChange={(evento) => {setTelefone(evento.target.value);}}
                                     required />
                                 </div>
                                 <div className="form-group">
                                     <label >Pis/Pasep: </label> <br/>
-                                    <input type="number" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
+                                    <input type="text" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
                                     value={pis}
                                     onChange={(evento) => {setPis(evento.target.value);}}
                                     required />
