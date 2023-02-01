@@ -31,7 +31,7 @@ function AppCadastro (){
                 dataNascimento: dataNascimento,
             }
             console.log("deu certo")
-            axios.post(`${BASE_URL}gbp/pessoa/inserir`, data).then(response => {
+            axios.post(`${BASE_URL}/gbp/pessoa/inserir`, data).then(response => {
             });
             alert("Cadastro concluido com sucesso");
         }else{
