@@ -1,11 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../utiu/request";
-import { isValidCPF, IsValidaPISPASEP } from "../../utiu/validadores.ts";
 import { Mascara, MascaraData, MascaraTelefone, MascaraPis } from "../../utiu/mascaras";
 import './styles.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { IsValidaPISPASEP, isValidCPF } from "../../utiu/validadores";
 
 function AppCadastro (){
 
@@ -18,7 +18,7 @@ function AppCadastro (){
 
     isValidCPF(cpf);
 
-    const inserirCadastro = (eve)=>{
+    const inserirCadastro = (eve:Event)=>{
         const verificaData = Date.parse(dataNascimento);
        
        if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
@@ -36,7 +36,7 @@ function AppCadastro (){
             });
             alert("Cadastro concluido com sucesso");
         }else{
-            eve.preventDefault ()
+            eve.preventDefault();
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }

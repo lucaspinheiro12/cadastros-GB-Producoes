@@ -1,4 +1,3 @@
-import BotaoNotificacao from "./componentes/botaoNotificacao"
 import Header from "./componentes/Header"
 import Pessoa from "./componentes/pessoas"
 
