@@ -29,7 +29,7 @@ function App (){
                 dataNascimento: dataNascimento,
             }
             axios.post(`${BASE_URL}/gbp/pessoas/inserir`, data).then(response => {
-               console.log( response.data(data))
+               console.log( response.data)
             });
             alert("Cadastro concluido com sucesso");
         }else{
