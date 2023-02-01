@@ -71,7 +71,7 @@ function AppCadastro (){
                                 </div>
                                 <div className="form-group">
                                     <label >Data Nascimento: Mês/Dia/Ano </label> <br/>
-                                    <MascaraData type={Date}  classname={"form-control"} value={dataNascimento} onchange={(evento) => {setDataNascimento(evento.target.value);}} />
+                                    <MascaraData />
                                     
                                 </div>
                                 <div className="form-group">
