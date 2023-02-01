@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../utiu/request";
-import { isValidCPF, IsValidaPISPASEP } from "../../utiu/validadores";
+import { isValidCPF, IsValidaPISPASEP } from "../../utiu/validadores.tsx";
 import { Mascara, MascaraData, MascaraTelefone, MascaraPis } from "../../utiu/mascaras";
 import './styles.css';
 import DatePicker from "react-datepicker";
