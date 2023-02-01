@@ -28,7 +28,6 @@ function App (){
                 pis: pis,
                 dataNascimento: dataNascimento,
             }
-            console.log("deu certo")
             axios.post(`${BASE_URL}/gbp/pessoa/inserir`, data).then(response => {
             });
             alert("Cadastro concluido com sucesso");
