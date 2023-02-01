@@ -1,4 +1,4 @@
-import { ChangeEventHandler, HTMLInputTypeAttribute } from "react";
+/*import { ChangeEventHandler, HTMLInputTypeAttribute } from "react";
 import ReactInputMask from "react-input-mask";
 
 export const Mascara = (classname:string, type:HTMLInputTypeAttribute, onchange:ChangeEventHandler,value: string | ReadonlyArray<string> | number | undefined) =>{
@@ -55,4 +55,4 @@ export const MascaraTelefone = (classname:string, type:HTMLInputTypeAttribute, o
         required
         />
     );
-};
+};*/

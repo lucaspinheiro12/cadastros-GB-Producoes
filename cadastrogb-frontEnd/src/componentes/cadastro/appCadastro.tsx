@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../../utiu/request";
-import { Mascara, MascaraData, MascaraTelefone, MascaraPis } from "../../utiu/mascaras";
 import './styles.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { IsValidaPISPASEP, isValidCPF } from "../../utiu/validadores";
+import { IsValidaPISPASEP, isValidCPF, } from "../../utiu/validadores";
 
 function AppCadastro (){
 
@@ -18,7 +17,7 @@ function AppCadastro (){
 
     isValidCPF(cpf);
 
-    const inserirCadastro = (eve:Event)=>{
+    const inserirCadastro = ()=>{
         const verificaData = Date.parse(dataNascimento);
        
        if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
@@ -36,7 +35,6 @@ function AppCadastro (){
             });
             alert("Cadastro concluido com sucesso");
         }else{
-            eve.preventDefault();
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
@@ -64,23 +62,31 @@ function AppCadastro (){
                                 </div>
                                 <div className="form-group">
                                     <label>CPF: </label> <br/>
-                                <Mascara  type={Number}
-                                    classname={"form-control"}
-                                    value={cpf} 
-                                    onchange={ (evento) =>{ setCpf(evento.target.value);}}  />
+                                    <input type="number" className="form-control" id="cpf" name="cpf" placeholder="000.000.000.00" 
+                                    value={cpf}
+                                    onChange={(evento) => {setCpf(evento.target.value);}}
+                                    required />
                                 </div>
                                 <div className="form-group">
                                     <label >Data Nascimento: Mês/Dia/Ano </label> <br/>
-                                    <MascaraData type={Date}  classname={"form-control"} value={dataNascimento} onchange={(evento) => {setDataNascimento(evento.target.value);}} />
-                                    
+                                    <input type="date" className="form-control" id="data" name="data"  
+                                    value={dataNascimento}
+                                    onChange={(evento) => {setDataNascimento(evento.target.value);}}
+                                    required />
                                 </div>
                                 <div className="form-group">
                                     <label>Telefone: </label> <br/>
-                                    <MascaraTelefone type={Number}  classname={"form-control"} value={telefone} onchange={(evento) => {setTelefone( evento.target.value);}}/>
+                                    <input type="number" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" 
+                                    value={nome}
+                                    onChange={(evento) => {setNome(evento.target.value);}}
+                                    required />
                                 </div>
                                 <div className="form-group">
                                     <label >Pis/Pasep: </label> <br/>
-                                    <MascaraPis type={Number}  classname={"form-control"} value={pis} onchange={(evento) => {setPis( evento.target.value);}}/>
+                                    <input type="number" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
+                                    value={nome}
+                                    onChange={(evento) => {setNome(evento.target.value);}}
+                                    required />
                                 </div>
                                 <div className="form-group text-center">
                                     <button type="submit"
