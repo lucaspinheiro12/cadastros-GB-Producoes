@@ -5,6 +5,7 @@ import { BASE_URL } from "./utiu/request";
 import axios from "axios";
 
 
+
 function App (){
  
     const [nome, setNome] = useState('');
@@ -14,32 +15,32 @@ function App (){
     const [pis, setPis] = useState('');
 
     isValidCPF(cpf);
-
-    const inserirCadastro = ()=>{
+    const validarCadastro = ()=>{
         const verificaData = Date.parse(dataNascimento);
        
-       if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
-
-            const data = {
-                id:'',
-                nome: nome,
-                cpf: cpf,
-                telefone: telefone,
-                pis: pis,
-                dataNascimento: dataNascimento,
-            }
-            axios.post(`${BASE_URL}/gbp/pessoas/inserir`, data).then(response => {
-            });
+        if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
+            inserirCadastro();
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-
+    const inserirCadastro = ()=>{
+        const pessoa = {
+            id:'',
+            nome: nome,
+            cpf: cpf,
+            telefone: telefone,
+            pis: pis,
+            dataNascimento: dataNascimento
+        }
+            axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(response => {
+            });
+    }
 
     return(
         <>
-                <form onSubmit={inserirCadastro}>
+                <form onSubmit={validarCadastro}>
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
