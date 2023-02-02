@@ -27,10 +27,7 @@ function App (){
                     pis: pis,
                     dataNascimento: dataNascimento
                 }
-                 axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(response => {    
-                    console.log(response.data.value)
-                    console.log(response.data)
-                });
+                 axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa)
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
@@ -83,8 +80,8 @@ function App (){
                                     required />
                                 </div>
                                 <div className="form-group text-center">
-                                    <input type="submit" 
-                                    className="btn-primary"/>Enviar
+                                    <button type="submit" 
+                                    className="btn-primary">Enviar</button>
                                 </div>
                             </div>
                         </div>    
