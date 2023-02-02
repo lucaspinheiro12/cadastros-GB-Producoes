@@ -19,25 +19,24 @@ function App (){
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
-            inserirCadastro()
+                const pessoa = {
+                    id:'',
+                    nome: nome,
+                    cpf: cpf,
+                    telefone: telefone,
+                    pis: pis,
+                    dataNascimento: dataNascimento
+                }
+                 axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(response => {    
+                    console.log(response.data.value)
+                    console.log(response.data)
+                });
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-    const inserirCadastro = async ()=>{
-        const pessoa = {
-            id:'',
-            nome: nome,
-            cpf: cpf,
-            telefone: telefone,
-            pis: pis,
-            dataNascimento: dataNascimento
-        }
-        await axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(response => {    
-        });
-
-    }
+  
 
     return(
         <>
