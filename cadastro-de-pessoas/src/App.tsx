@@ -25,7 +25,7 @@ function App (){
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-    const inserirCadastro =  ()=>{
+    const inserirCadastro = async ()=>{
         const pessoa = {
             id:'',
             nome: nome,
@@ -34,19 +34,14 @@ function App (){
             pis: pis,
             dataNascimento: dataNascimento
         }
-        fetch("/", {
-            method: "POST",
-            headers: {"Content-Type": `${BASE_URL}/gbp/pessoas/inserir`}
-
-        })
-        //await axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(response => {    
-       // });
+        await axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(response => {    
+        });
 
     }
 
     return(
         <>
-                <form  data-netlify="true" name="cadastro" method="POST"  onSubmit={validarCadastro} >
+                <form  data-netlify="true"  onSubmit={validarCadastro} >
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
