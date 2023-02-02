@@ -29,18 +29,13 @@ function App (){
                 dataNascimento: dataNascimento,
             }
             axios.post(`${BASE_URL}/gbp/pessoas/inserir`, data).then(response => {
-               console.log( response.data)
             });
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-//<DatePicker selected={dataNascimento}
-//onChange={(date: Date) =>  setDataNascimento(date)}
-//className="form-control"
-//dateFormat="dd/MM/yyyy"
-// /> dataNascimento.toISOString().slice(0, 10);
+
 
     return(
         <>
