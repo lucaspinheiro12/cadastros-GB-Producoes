@@ -15,11 +15,11 @@ function App (){
     const [pis, setPis] = useState('');
 
     isValidCPF(cpf);
-    const validarCadastro = async ()=>{
+    const validarCadastro = ()=>{
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
-             await inseirNoBanco();
+              inseirNoBanco;
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
