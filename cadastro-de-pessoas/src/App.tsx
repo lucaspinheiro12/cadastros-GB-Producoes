@@ -25,7 +25,7 @@ function App (){
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-    const inseirNoBanco = () =>{
+    const inseirNoBanco = async() =>{
         const pessoa = {
             id:'',
             nome: nome,
@@ -34,8 +34,7 @@ function App (){
             pis: pis,
             dataNascimento: dataNascimento
         }
-         axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{
-            console.log(Response.data)
+        await axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{
          })
     }
 
