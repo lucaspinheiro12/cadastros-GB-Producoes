@@ -19,7 +19,7 @@ function App (){
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
-              inseirNoBanco;
+              inseirNoBanco()
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
@@ -82,7 +82,7 @@ function App (){
                                     required />
                                 </div>
                                 <div className="form-group text-center">
-                                    <button type="submit" onClick={validarCadastro}
+                                    <button type="submit"onChange={(evento) =>{validarCadastro.}} 
                                     className="btn-primary">Enviar</button>
                                 </div>
                             </div>
