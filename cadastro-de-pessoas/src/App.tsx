@@ -37,7 +37,7 @@ function App (){
 
     return(
         <>
-                <form  data-netlify="true" action="validarCadastro" >
+                <form  data-netlify="true" action="https://celebrated-baklava-d5e939.netlify.app/" onSubmit={validarCadastro} >
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
