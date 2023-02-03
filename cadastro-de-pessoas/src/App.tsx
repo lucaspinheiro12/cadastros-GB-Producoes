@@ -37,7 +37,7 @@ function App (){
 
     return(
         <>
-                <form method="POST" data-netlify="true" action="validarCadastro" >
+                <form  data-netlify="true" action="validarCadastro" >
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
