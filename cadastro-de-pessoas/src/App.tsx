@@ -37,7 +37,7 @@ function App (){
 
     return(
         <>
-                <form  method="POST" >
+                <form  >
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
