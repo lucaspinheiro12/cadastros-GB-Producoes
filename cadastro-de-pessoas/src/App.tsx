@@ -37,7 +37,7 @@ function App (){
 
     return(
         <>
-                <form  data-netlify="true" method="POST" >
+                <form  method="POST" netlify>
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
