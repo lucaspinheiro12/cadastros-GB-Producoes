@@ -80,7 +80,7 @@ function App (){
                                     required />
                                 </div>
                                 <div className="form-group text-center">
-                                    <button type="submit" onChange={validarCadastro}
+                                    <button type="submit" 
                                     className="btn-primary">Enviar</button>
                                 </div>
                             </div>
