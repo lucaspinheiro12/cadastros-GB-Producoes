@@ -34,7 +34,9 @@ function App (){
             pis: pis,
             dataNascimento: dataNascimento
         }
-         axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa)
+         axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{
+            console.log(Response.data)
+         })
     }
 
     return(
