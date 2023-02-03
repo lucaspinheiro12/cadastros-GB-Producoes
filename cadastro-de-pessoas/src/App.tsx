@@ -37,7 +37,6 @@ function App (){
 
     return(
         <>
-                <form  >
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
@@ -80,13 +79,12 @@ function App (){
                                     required />
                                 </div>
                                 <div className="form-group text-center">
-                                    <button type="submit" onChange={validarCadastro}
+                                    <button type="submit" onClick={validarCadastro}
                                     className="btn-primary">Enviar</button>
                                 </div>
                             </div>
                         </div>    
-                </div>                  
-            </form>                                    
+                </div>                                                      
         </>
     )
 }
