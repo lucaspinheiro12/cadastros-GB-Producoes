@@ -19,21 +19,23 @@ function App (){
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
-                const pessoa = {
-                    id:'',
-                    nome: nome,
-                    cpf: cpf,
-                    telefone: telefone,
-                    pis: pis,
-                    dataNascimento: dataNascimento
-                }
-                 axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa)
+              inseirNoBanco();
             alert("Cadastro concluido com sucesso");
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-  
+    const inseirNoBanco = () =>{
+        const pessoa = {
+            id:'',
+            nome: nome,
+            cpf: cpf,
+            telefone: telefone,
+            pis: pis,
+            dataNascimento: dataNascimento
+        }
+         axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa)
+    }
 
     return(
         <>
