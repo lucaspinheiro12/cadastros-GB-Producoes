@@ -14,8 +14,9 @@ function App (){
     const [cpf, setCpf] = useState('');
     const [pis, setPis] = useState('');
 
-    isValidCPF(cpf);
+
     const validarCadastro = ()=>{
+        isValidCPF(cpf);
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
@@ -38,12 +39,12 @@ function App (){
 
     return(
         <>
+            <form onChange={validarCadastro}>  
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
                                 <h3 className="texto">Cadastro de Colaborador</h3>
                             </div>
-                        <form onChange={validarCadastro}>    
                                 <div className="card-boby">
                                     <div className="form-group">
                                         <label >Nome Completo:</label> <br/>
@@ -85,9 +86,9 @@ function App (){
                                         className="btn-primary">Enviar</button>
                                     </div>
                                </div>
-                            </form>
                         </div>    
-                </div>                                                    
+                </div> 
+            </form>                                                       
         </>
     )
 }
