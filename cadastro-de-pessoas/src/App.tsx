@@ -19,27 +19,26 @@ function App (){
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
-              inseirNoBanco()
-            alert("Cadastro concluido com sucesso");
+            const pessoa = {
+                id:'',
+                nome: nome,
+                cpf: cpf,
+                telefone: telefone,
+                pis: pis,
+                dataNascimento: dataNascimento
+            }
+             axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
+                alert("Cadastro concluido com sucesso");
+             })
+
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-    const inseirNoBanco = async() =>{
-        const pessoa = {
-            id:'',
-            nome: nome,
-            cpf: cpf,
-            telefone: telefone,
-            pis: pis,
-            dataNascimento: dataNascimento
-        }
-        await axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{
-         })
-    }
 
     return(
         <>
+        <form onChange={validarCadastro}>
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
@@ -82,12 +81,13 @@ function App (){
                                     required />
                                 </div>
                                 <div className="form-group text-center">
-                                    <button type="submit"onChange={(evento) =>{validarCadastro}} 
+                                    <button type="submit"
                                     className="btn-primary">Enviar</button>
                                 </div>
                             </div>
                         </div>    
-                </div>                                                      
+                </div>     
+            </form>                                               
         </>
     )
 }
