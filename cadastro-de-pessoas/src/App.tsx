@@ -38,56 +38,56 @@ function App (){
 
     return(
         <>
-        <form onChange={validarCadastro}>
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
                                 <h3 className="texto">Cadastro de Colaborador</h3>
                             </div>
-                            <div className="card-boby">
-                                <div className="form-group">
-                                    <label >Nome Completo:</label> <br/>
-                                    <input type="text" className="form-control" id="nome" name="nome" placeholder="Seu nome" 
-                                    value={nome}
-                                    onChange={(evento) => {setNome(evento.target.value);}}
-                                    required />
-                                </div>
-                                <div className="form-group">
-                                    <label>CPF: </label> <br/>
-                                    <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000.00" 
-                                    value={cpf}
-                                    onChange={(evento) => {setCpf(evento.target.value);}}
-                                    required />
-                                </div>
-                                <div className="form-group">
-                                    <label >Data Nascimento: Mês/Dia/Ano </label> <br/>
-                                    <input type="date" className="form-control" id="data" name="data"  
-                                    value={dataNascimento}
-                                    onChange={(evento) => {setDataNascimento(evento.target.value);}}
-                                    required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Telefone: </label> <br/>
-                                    <input type="text" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" 
-                                    value={telefone}
-                                    onChange={(evento) => {setTelefone(evento.target.value);}}
-                                    required />
-                                </div>
-                                <div className="form-group">
-                                    <label >Pis/Pasep: </label> <br/>
-                                    <input type="text" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
-                                    value={pis}
-                                    onChange={(evento) => {setPis(evento.target.value);}}
-                                    required />
-                                </div>
-                                <div className="form-group text-center">
-                                    <button type="submit"
-                                    className="btn-primary">Enviar</button>
-                                </div>
-                            </div>
+                        <form onChange={validarCadastro}>    
+                                <div className="card-boby">
+                                    <div className="form-group">
+                                        <label >Nome Completo:</label> <br/>
+                                        <input type="text" className="form-control" id="nome" name="nome" placeholder="Seu nome" 
+                                        value={nome}
+                                        onChange={(evento) => {setNome(evento.target.value);}}
+                                        required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>CPF: </label> <br/>
+                                        <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000.00" 
+                                        value={cpf}
+                                        onChange={(evento) => {setCpf(evento.target.value);}}
+                                        required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Data Nascimento: Mês/Dia/Ano </label> <br/>
+                                        <input type="date" className="form-control" id="data" name="data"  
+                                        value={dataNascimento}
+                                        onChange={(evento) => {setDataNascimento(evento.target.value);}}
+                                        required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Telefone: </label> <br/>
+                                        <input type="text" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" 
+                                        value={telefone}
+                                        onChange={(evento) => {setTelefone(evento.target.value);}}
+                                        required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label >Pis/Pasep: </label> <br/>
+                                        <input type="text" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
+                                        value={pis}
+                                        onChange={(evento) => {setPis(evento.target.value);}}
+                                        required />
+                                    </div>
+                                    <div className="form-group text-center">
+                                        <button type="submit"
+                                        className="btn-primary">Enviar</button>
+                                    </div>
+                               </div>
+                            </form>
                         </div>    
-                </div>     
-            </form>                                               
+                </div>                                                    
         </>
     )
 }
