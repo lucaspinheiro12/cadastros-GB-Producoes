@@ -39,7 +39,7 @@ function App (){
 
     return(
         <>
-            <form onChange={validarCadastro}>  
+            <form onSubmit={validarCadastro}>  
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
