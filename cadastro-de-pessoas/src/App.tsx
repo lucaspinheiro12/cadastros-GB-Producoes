@@ -28,7 +28,7 @@ function App (){
                 pis: pis,
                 dataNascimento: dataNascimento
             }
-             axios.post(`https://gbp-cadastros.herokuapp.com/gbp/pessoas/inserir`, pessoa).then(Response =>{  
+             axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
                 alert("Cadastro concluido com sucesso");
              })
 
