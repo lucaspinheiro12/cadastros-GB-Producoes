@@ -19,6 +19,7 @@ import com.gbproducao.cadastrogbp.service.gbProducaoService;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 public class gbProducaoController extends BaseRestController {
 
 	@Autowired
