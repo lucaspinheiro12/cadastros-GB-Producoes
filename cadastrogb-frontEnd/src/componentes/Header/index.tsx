@@ -7,7 +7,7 @@ function Header () {
                 <img className='gbp-logo-container img' src={logo} alt="gbProduções"/>
                 <h1>GB Produções</h1>
                 <p>  
-                   <a href="../../cadastro.html">Link para cadastros</a>
+                   <a href="https://cadastro-gb-producoes.netlify.app/">Link para cadastros</a>
                 </p>
             </div>
         </header>
