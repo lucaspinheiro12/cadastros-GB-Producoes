@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 
+//Pessoas
 @Entity
 @SequenceGenerator(name = "seq_cadastro", sequenceName = "seq_cadastro", allocationSize = 1, initialValue = 1)
 public class Pessoa {
