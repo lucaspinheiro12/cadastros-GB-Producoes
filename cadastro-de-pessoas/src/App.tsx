@@ -26,7 +26,7 @@ function App (){
                 telefone: telefone,
                 pis: pis,
                 dataNascimento: dataNascimento,
-                pix: pix
+                pix: pix,
             }
              axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
                 alert("Cadastro concluido com sucesso");
