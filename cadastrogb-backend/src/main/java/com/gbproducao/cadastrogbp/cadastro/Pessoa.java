@@ -20,10 +20,22 @@ public class Pessoa {
 	private String telefone;
 	private String pis;
 	private String dataNascimento;
+	private String pix;
 
 	public Pessoa() {
 		
 	}
+
+	
+	public String getPix() {
+		return pix;
+	}
+
+
+	public void setPix(String pix) {
+		this.pix = pix;
+	}
+
 
 	public Integer getId() {
 		return id;
