@@ -81,7 +81,7 @@ function App (){
                                         required />
                                     </div>
                                     <div className="form-group text-center">
-                                        <button type="submit" onSubmit={validarCadastro}
+                                        <button type="button" onClick={validarCadastro}
                                         className="btn-primary">Enviar</button>
                                     </div>
                                </div>
