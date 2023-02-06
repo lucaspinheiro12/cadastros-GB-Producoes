@@ -30,6 +30,7 @@ function App (){
             }
              axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
                 alert("Cadastro concluido com sucesso");
+                window.location.reload()
              })
 
         }else{
