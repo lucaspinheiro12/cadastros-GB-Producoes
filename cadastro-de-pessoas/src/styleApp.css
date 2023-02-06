@@ -27,6 +27,10 @@
 .form-group{
 margin-top: 7%;
 }
+.separar{
+    color: red;
+    font-weight: bold;
+}
 
 .form-control{
    margin-top: 2%;

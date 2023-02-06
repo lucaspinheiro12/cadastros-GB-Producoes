@@ -33,8 +33,6 @@ export function isValidCPF(cpf:string) {
     return true
 }
 
-
-
 export function IsValidaPISPASEP(pis:string){
 
     pis = pis.replaceAll(/[\s.-]*/igm, '');

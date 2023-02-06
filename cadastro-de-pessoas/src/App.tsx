@@ -13,12 +13,11 @@ function App (){
     const [telefone, setTelefone] = useState('');
     const [cpf, setCpf] = useState('');
     const [pis, setPis] = useState('');
+    const [pix, setPix] = useState('');
 
 
     const validarCadastro = ()=>{
-        isValidCPF(cpf);
         const verificaData = Date.parse(dataNascimento);
-       
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
             const pessoa = {
                 id:'',
@@ -26,7 +25,8 @@ function App (){
                 cpf: cpf,
                 telefone: telefone,
                 pis: pis,
-                dataNascimento: dataNascimento
+                dataNascimento: dataNascimento,
+                pix: pix
             }
              axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
                 alert("Cadastro concluido com sucesso");
@@ -53,14 +53,15 @@ function App (){
                                         required />
                                     </div>
                                     <div className="form-group">
-                                        <label>CPF: </label> <br/>
-                                        <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000.00" 
+                                        <label>CPF: </label> 
+                                        <label className="separar">   Separar por . ou - </label> <br/>
+                                        <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" 
                                         value={cpf}
-                                        onChange={(evento) => {setCpf(evento.target.value);}}
+                                        onChange={(evento) => {setCpf( evento.target.value);}}
                                         required />
                                     </div>
                                     <div className="form-group">
-                                        <label >Data Nascimento: Mês/Dia/Ano </label> <br/>
+                                        <label >Data Nascimento: </label> <br/>
                                         <input type="date" className="form-control" id="data" name="data"  
                                         value={dataNascimento}
                                         onChange={(evento) => {setDataNascimento(evento.target.value);}}
@@ -74,10 +75,18 @@ function App (){
                                         required />
                                     </div>
                                     <div className="form-group">
-                                        <label >Pis/Pasep: </label> <br/>
+                                        <label >Pis/Pasep: </label>
+                                        <label className="separar">   Separar por . ou - </label> <br/>
                                         <input type="text" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
                                         value={pis}
                                         onChange={(evento) => {setPis(evento.target.value);}}
+                                        required />
+                                    </div>
+                                    <div className="form-group">
+                                        <label>CPF: </label> <br/>
+                                        <input type="text" className="form-control" id="pix" name="pix" placeholder="PIX" 
+                                        value={pix}
+                                        onChange={(evento) => {setPix(evento.target.value);}}
                                         required />
                                     </div>
                                     <div className="form-group text-center">
