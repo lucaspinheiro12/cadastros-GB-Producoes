@@ -39,7 +39,7 @@ function App (){
 
     return(
         <>
-            <form onSubmit={validarCadastro} method="POST" data-netlify="true">  
+            <form onSubmit={validarCadastro}  data-netlify="true">  
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
