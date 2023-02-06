@@ -38,8 +38,7 @@ function App (){
     }
 
     return(
-        <>
-            <form onSubmit={validarCadastro}  data-netlify="true">  
+        <> 
                     <div className="conteiner">
                         <div className="formulario">
                             <div className="titulo">
@@ -82,13 +81,12 @@ function App (){
                                         required />
                                     </div>
                                     <div className="form-group text-center">
-                                        <button type="submit"
+                                        <button type="submit" onSubmit={validarCadastro}
                                         className="btn-primary">Enviar</button>
                                     </div>
                                </div>
                         </div>    
-                </div> 
-            </form>                                                       
+                </div>                                                   
         </>
     )
 }
