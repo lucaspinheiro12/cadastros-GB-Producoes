@@ -5,4 +5,5 @@ export type PessoaUn ={
     telefone: string;
     pis: string;
     dataNascimento: string;
+    pix: string
 }

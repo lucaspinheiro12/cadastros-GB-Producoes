@@ -36,9 +36,10 @@ function Pessoa() {
                             <tr>
                                 <th className="show992">ID</th>
                                 <th className="show576">Nome</th>
-                                <th className="show992">Cpf</th>
-                                <th className="show992">Data Nascimento</th>
+                                <th className="show992">CPF</th>
                                 <th className="show992">Pis/Pasep</th>
+                                <th className="show992">Data Nascimento</th>
+                                <th className="show992">pix</th>
                                 <th className="show992">Telefone</th>
                             </tr>
                         </thead>
@@ -50,8 +51,9 @@ function Pessoa() {
                                             <td className="show992">{colaborador.id}</td>
                                             <td>{colaborador.nome}</td>
                                             <td className="show992">{colaborador.cpf}</td>
-                                            <td className="show992">{colaborador.dataNascimento}</td>
-                                            <td className="show992"> {colaborador.pis}</td>
+                                            <td className="show992">{colaborador.pis}</td>
+                                            <td className="show992"> {colaborador.dataNascimento}</td>
+                                            <td className="show992"> {colaborador.pix}</td>
                                             <td className="show992">{colaborador.telefone} </td>
                                         </tr> 
                                     )   
