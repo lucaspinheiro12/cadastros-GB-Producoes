@@ -18,6 +18,7 @@ function App (){
 
     const validarCadastro = ()=>{
         const verificaData = Date.parse(dataNascimento);
+        let data = new Date(dataNascimento);
         if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
             const pessoa = {
                 id:'',
@@ -25,7 +26,7 @@ function App (){
                 cpf: cpf,
                 telefone: telefone,
                 pis: pis,
-                dataNascimento: dataNascimento,
+                dataNascimento: data.toLocaleDateString("pt-BR"),
                 pix: pix,
             }
              axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
