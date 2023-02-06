@@ -83,7 +83,7 @@ function App (){
                                         required />
                                     </div>
                                     <div className="form-group">
-                                        <label>CPF: </label> <br/>
+                                        <label>PIX: </label> <br/>
                                         <input type="text" className="form-control" id="pix" name="pix" placeholder="PIX" 
                                         value={pix}
                                         onChange={(evento) => {setPix(evento.target.value);}}
