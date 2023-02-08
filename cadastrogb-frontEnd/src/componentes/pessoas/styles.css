@@ -64,7 +64,7 @@
     justify-content: center;
 }
 
-@media(min-width:745px) and (max-width:775px){
+@media(min-width:745px) and (max-width:795px){
     .show992{
 
         padding-right: 10px;
