@@ -64,6 +64,12 @@
     justify-content: center;
 }
 
+@media(min-width:745px) and (max-width:775px){
+    show992{
+        padding: 10px;
+    }
+}
+
 @media (max-width: 575px){
     .show992{
         display: none;
