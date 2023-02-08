@@ -65,7 +65,7 @@
 }
 
 @media(min-width:745px) and (max-width:775px){
-    show992{
+    .show992{
         padding: 10px;
     }
 }
