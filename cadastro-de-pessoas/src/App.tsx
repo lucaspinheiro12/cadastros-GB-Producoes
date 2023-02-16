@@ -12,19 +12,19 @@ function App (){
     const [dataNascimento, setDataNascimento] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cpf, setCpf] = useState('');
-    const [pis, setPis] = useState('');
+    const [email, setEmail] = useState('');
     const [pix, setPix] = useState('');
 
 
     const validarCadastro = ()=>{
         const verificaData = Date.parse(dataNascimento);
-        if(isValidCPF(cpf) && IsValidaPISPASEP(pis) && verificaData){
+        if(isValidCPF(cpf)  && verificaData){
             const pessoa = {
                 id:'',
                 nome: nome,
                 cpf: cpf,
                 telefone: telefone,
-                pis: pis,
+                email: email,
                 dataNascimento: dataNascimento,
                 pix: pix,
             }
@@ -76,11 +76,11 @@ function App (){
                                         required />
                                     </div>
                                     <div className="form-group">
-                                        <label >Pis/Pasep: </label>
-                                        <label className="separar">   Separar por . ou - </label> <br/>
-                                        <input type="text" className="form-control" id="pis" name="pis" placeholder="Seu nome" 
-                                        value={pis}
-                                        onChange={(evento) => {setPis(evento.target.value);}}
+                                        <label >Email: </label>
+                                        <br/>
+                                        <input type="text" className="form-control" id="email" name="email" placeholder="email@email.com" 
+                                        value={email}
+                                        onChange={(evento) => {setEmail(evento.target.value);}}
                                         required />
                                     </div>
                                     <div className="form-group">
