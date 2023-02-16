@@ -17,7 +17,7 @@ function App (){
 
 
     const validarCadastro = ()=>{
-        if(nome == "" && dataNascimento == "" && telefone == "" && cpf == "" && email == "" && email == "" && pix == ""){
+        if(nome == " " && dataNascimento == " " && telefone == " " && cpf == " " && email == " " && email == " " && pix == " "){
             alert("Algum campo não foi preenchido")
         }else{
             const verificaData = Date.parse(dataNascimento);
@@ -52,32 +52,32 @@ function App (){
                                 <div className="card-boby">
                                     <div className="form-group">
                                         <label >Nome Completo:</label> <br/>
-                                        <input type="text" className="form-control" id="nome" name="nome" placeholder="Seu nome" 
+                                        <input type="text" className="form-control" id="nome" name="nome" placeholder="Seu nome" required 
                                         value={nome}
                                         onChange={(evento) => {setNome(evento.target.value);}}
-                                        required />
+                                         />
                                     </div>
                                     <div className="form-group">
                                         <label>CPF: </label> 
                                         <label className="separar">   Separar por . ou - </label> <br/>
-                                        <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" 
+                                        <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required
                                         value={cpf}
                                         onChange={(evento) => {setCpf( evento.target.value);}}
-                                        required />
+                                         />
                                     </div>
                                     <div className="form-group">
                                         <label >Data Nascimento: </label> <br/>
-                                        <input type="date" className="form-control" id="data" name="data"  
+                                        <input type="date" className="form-control" id="data" name="data"  required
                                         value={dataNascimento}
                                         onChange={(evento) => {setDataNascimento(evento.target.value);}}
-                                        required />
+                                         />
                                     </div>
                                     <div className="form-group">
                                         <label>Telefone: </label> <br/>
-                                        <input type="text" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" 
+                                        <input type="text" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" required
                                         value={telefone}
                                         onChange={(evento) => {setTelefone(evento.target.value);}}
-                                        required />
+                                         />
                                     </div>
                                     <div className="form-group">
                                         <label >Email: </label>
