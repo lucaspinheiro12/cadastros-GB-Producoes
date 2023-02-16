@@ -17,29 +17,27 @@ function App (){
 
 
     const validarCadastro = ()=>{
-        if(nome == ("") && dataNascimento == ("")  && telefone == ("") && cpf == ("")  && email == ("")  && email == ("") && pix == ("") ){
-            alert("Algum campo não foi preenchido")
-        }else{
-            const verificaData = Date.parse(dataNascimento);
-            if(isValidCPF(cpf)  && verificaData){
-                const pessoa = {
-                    id:'',
-                    nome: nome,
-                    cpf: cpf,
-                    telefone: telefone,
-                    pis: email,
-                    dataNascimento: dataNascimento,
-                    pix: pix,
-                }
-                axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
-                    alert("Cadastro concluido com sucesso");
-                    window.location.reload()
-                })
-
-            }else{
-                alert("Algo deu errado, verifique seus dados se estão corretos.");
+        
+        const verificaData = Date.parse(dataNascimento);
+        if(isValidCPF(cpf)  && verificaData){
+            const pessoa = {
+                id:'',
+                nome: nome,
+                cpf: cpf,
+                telefone: telefone,
+                pis: email,
+                dataNascimento: dataNascimento,
+                pix: pix,
             }
-        }    
+            axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
+                alert("Cadastro concluido com sucesso");
+                window.location.reload()
+            })
+
+        }else{
+             alert("Algo deu errado, verifique seus dados se estão corretos.");
+        }
+            
     }
 
     return(
