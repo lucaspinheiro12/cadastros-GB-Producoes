@@ -24,7 +24,7 @@ function App (){
                 nome: nome,
                 cpf: cpf,
                 telefone: telefone,
-                email: email,
+                pis: email,
                 dataNascimento: dataNascimento,
                 pix: pix,
             }
