@@ -17,7 +17,7 @@ function App (){
 
 
     const validarCadastro = ()=>{
-        if(nome == " " && dataNascimento == " " && telefone == " " && cpf == " " && email == " " && email == " " && pix == " "){
+        if(nome == ("") && dataNascimento == ("")  && telefone == ("") && cpf == ("")  && email == ("")  && email == ("") && pix == ("") ){
             alert("Algum campo não foi preenchido")
         }else{
             const verificaData = Date.parse(dataNascimento);
