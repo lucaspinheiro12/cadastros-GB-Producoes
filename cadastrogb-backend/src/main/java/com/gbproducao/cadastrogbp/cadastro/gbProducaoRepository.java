@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface gbProducaoRepository extends JpaRepository<Pessoa, Integer>{
 	List<Pessoa> findByNomeContains(String nome);
+	List<Pessoa> findByCpfContains(String cpf);
 }

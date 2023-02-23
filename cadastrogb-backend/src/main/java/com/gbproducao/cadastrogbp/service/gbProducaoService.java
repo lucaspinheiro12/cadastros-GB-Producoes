@@ -17,6 +17,7 @@ public interface gbProducaoService {
 		void delete (Integer id);
 
 		List<Pessoa> findByNomeContains(String nome);
+		List<Pessoa> findByCpfContains(String cpf);
 
 
 }

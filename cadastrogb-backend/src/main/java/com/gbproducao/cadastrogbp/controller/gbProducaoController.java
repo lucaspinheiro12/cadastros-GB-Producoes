@@ -62,8 +62,13 @@ public class gbProducaoController extends BaseRestController {
 	@GetMapping("pessoa/filtrar")
 	public List<Pessoa> findPersonByName(@RequestParam("nome") String nome){
 		List<Pessoa> pessoa =  camadaNegocios.findByNomeContains(nome);
-		 return pessoa;
-		
+		 return pessoa;	
+	}
+	
+	@GetMapping("pessoa/validar")
+	public List<Pessoa> findPersonByCpf(@RequestParam("cpf") String cpf){
+		List<Pessoa> pessoa =  camadaNegocios.findByNomeContains(cpf);
+		 return pessoa;	
 	}
 	
 }

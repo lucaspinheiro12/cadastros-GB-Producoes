@@ -54,12 +54,17 @@ public class gbProducaoImpl implements gbProducaoService {
 	public void delete(Integer id) {
 		Pessoa pessoaDb = findByid(id);
 		repository.delete(pessoaDb);
-		
 	}
 
 	@Override
 	public List<Pessoa> findByNomeContains(String nome) {
 		List<Pessoa> pessoa = repository.findByNomeContains(nome);
+		return pessoa;
+	}
+	
+	@Override
+	public List<Pessoa> findByCpfContains(String cpf) {
+		List<Pessoa> pessoa = repository.findByCpfContains(cpf);
 		return pessoa;
 	}
 
