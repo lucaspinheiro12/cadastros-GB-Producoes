@@ -70,3 +70,9 @@ export function IsValidaPISPASEP(pis:string){
     return true;
 }
 
+export function camposValidos(nome:string, telefone:string, email:string){
+    if( nome== "" && telefone == "" && email == ""){
+        return false;
+    }
+}
+

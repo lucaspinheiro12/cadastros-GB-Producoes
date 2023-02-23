@@ -1,13 +1,13 @@
 import { useState } from "react";
 import './styleApp.css';
-import { IsValidaPISPASEP, isValidCPF } from "./utiu/validadores";
+import { camposValidos, IsValidaPISPASEP, isValidCPF } from "./utiu/validadores";
 import { BASE_URL } from "./utiu/request";
 import axios from "axios";
 
 
 
 function App (){
- 
+    let id = 0;
     const [nome, setNome] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -17,29 +17,27 @@ function App (){
 
 
     const validarCadastro = ()=>{
-        
         const verificaData = Date.parse(dataNascimento);
-        if(isValidCPF(cpf)  && verificaData){
-            const pessoa = {
-                id:'',
-                nome: nome,
-                cpf: cpf,
-                telefone: telefone,
-                pis: email,
-                dataNascimento: dataNascimento,
-                pix: pix,
-            }
-            axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa).then(Response =>{  
+       
+        if(isValidCPF(cpf) && verificaData && camposValidos(nome, telefone, email)){
+            if(! axios.get(`${BASE_URL}/gbp/pessoa/validar?cpf=${cpf}`)){
+                const pessoa = {
+                    id: id++ ,
+                    nome: nome,
+                    cpf: cpf,
+                    telefone: telefone,
+                    email: email,
+                    dataNascimento: dataNascimento
+                }
+                axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa);
                 alert("Cadastro concluido com sucesso");
-                window.location.reload()
-            })
-
+            }else{
+                alert("Esse cpf já foi cadastrado");
+            }
         }else{
-             alert("Algo deu errado, verifique seus dados se estão corretos.");
+            alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
-            
     }
-
     return(
         <> 
                     <div className="conteiner">
