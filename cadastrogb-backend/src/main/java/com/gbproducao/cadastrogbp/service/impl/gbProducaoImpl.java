@@ -14,7 +14,7 @@ import com.gbproducao.cadastrogbp.service.gbProducaoService;
 import com.gbproducao.cadastrogbp.service.exeption.NegociosExeption;
 import com.gbproducao.cadastrogbp.service.exeption.NoContentExeption;
 
-
+//comunica a jpa
 @Service
 public class gbProducaoImpl implements gbProducaoService {
 

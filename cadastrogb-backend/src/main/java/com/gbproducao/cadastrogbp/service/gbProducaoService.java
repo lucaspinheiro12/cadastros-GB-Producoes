@@ -6,7 +6,7 @@ import com.gbproducao.cadastrogbp.cadastro.Pessoa;
 
 
 public interface gbProducaoService {
-	//service joga pro repositorio
+	//service joga pro repositorio 
 	List<Pessoa> findAll();
 		
 		Pessoa findByid(Integer id);
