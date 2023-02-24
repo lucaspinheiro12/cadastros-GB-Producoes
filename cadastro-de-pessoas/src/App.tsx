@@ -7,7 +7,6 @@ import axios from "axios";
 
 
 function App (){
-    let id = 0;
     const [nome, setNome] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -22,7 +21,7 @@ function App (){
         if(isValidCPF(cpf) && verificaData && camposValidos(nome, telefone, email)){
             if(! axios.get(`${BASE_URL}/gbp/pessoa/validar?cpf=${cpf}`)){
                 const pessoa = {
-                    id: id++ ,
+                    id: "" ,
                     nome: nome,
                     cpf: cpf,
                     telefone: telefone,
