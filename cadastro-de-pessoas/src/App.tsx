@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './styleApp.css';
-import { camposValidos, IsValidaPISPASEP, isValidCPF } from "./utiu/validadores";
+import { addBanco, camposValidos, IsValidaPISPASEP, isValidCPF, verificaCpfBanco } from "./utiu/validadores";
 import { BASE_URL } from "./utiu/request";
 import axios from "axios";
 
@@ -15,24 +15,13 @@ function App (){
     const [pix, setPix] = useState('');
 
 
-    const validarCadastro = ()=>{
+    const validarCadastro = async()=>{
         const verificaData = Date.parse(dataNascimento);
        
-        if(isValidCPF(cpf) && verificaData && camposValidos(nome, telefone, email)){
-            if(! axios.get(`${BASE_URL}/gbp/pessoa/validar?cpf=${cpf}`)){
-                const pessoa = {
-                    id: "" ,
-                    nome: nome,
-                    cpf: cpf,
-                    telefone: telefone,
-                    email: email,
-                    dataNascimento: dataNascimento
-                }
-                axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa);
-                alert("Cadastro concluido com sucesso");
-            }else{
-                alert("Esse cpf já foi cadastrado");
-            }
+        if(  isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, email, pix)){
+            if( await verificaCpfBanco(cpf)){
+               addBanco(nome, cpf, telefone, email, dataNascimento);
+            }  
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }

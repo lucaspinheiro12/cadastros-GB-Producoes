@@ -1,3 +1,6 @@
+import axios from "axios"
+import { BASE_URL } from "./request"
+
 export function isValidCPF(cpf:string) {
     if (typeof cpf !== "string") return false
     cpf = cpf.replace(/[\s.-]*/igm, '')
@@ -70,9 +73,40 @@ export function IsValidaPISPASEP(pis:string){
     return true;
 }
 
-export function camposValidos(nome:string, telefone:string, email:string){
-    if( nome== "" && telefone == "" && email == ""){
+export function camposValidos(nome:string, telefone:string, email:string, pix:string){
+    if( nome != "" && telefone != "" && email != "" && pix != ""){
+        return true;
+    }else{
         return false;
     }
 }
+
+export async function  verificaCpfBanco (cpf:string){
+    let valor ;
+     const pegaCpfNoBanco = await axios.get(`${BASE_URL}/gbp/pessoa/validar?cpf=${cpf}`).then(response => {
+       return valor = (response.data.length);
+    })
+    console.log(valor)
+    if(valor == 0){
+        return true;
+    }else{
+    alert("Esse cpf já foi cadastrado");
+        return false;
+}
+
+}
+
+export function addBanco(nome:string, cpf:string, telefone:string, email:string, dataNascimento:string){
+    const pessoa = {
+        id: "" ,
+        nome: nome,
+        cpf: cpf,
+        telefone: telefone,
+        email: email,
+        dataNascimento: dataNascimento
+    }
+    axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa);
+    alert("Cadastro concluido com sucesso");   
+}
+
 
