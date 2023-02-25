@@ -16,11 +16,13 @@ function App (){
 
 
     const validarCadastro = async()=>{
+
         const verificaData = Date.parse(dataNascimento);
        
         if(  isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, email, pix)){
             if( await verificaCpfBanco(cpf)){
                addBanco(nome, cpf, telefone, email, dataNascimento);
+               window.location.reload();
             }  
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
