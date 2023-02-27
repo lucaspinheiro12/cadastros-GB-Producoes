@@ -55,7 +55,7 @@ function App (){
                                             value={cpf}
                                             onChange={(evento) => {setCpf( evento.target.value);}}
                                             className="form-control"
-                                            type="number"
+                                            type="text"
                                             required
                                         />
                                     </div>
