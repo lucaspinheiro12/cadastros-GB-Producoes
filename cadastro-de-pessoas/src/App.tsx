@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './styleApp.css';
-import { addBanco, camposValidos, isValidCPF, verificaCpfBanco } from "./utiu/validadores";
+import { addBanco, camposValidos, isValidateEmail, isValidCPF, verificaCpfBanco } from "./utiu/validadores";
 import ReactInputMask from "react-input-mask"
 
 
@@ -12,12 +12,11 @@ function App (){
     const [email, setEmail] = useState('');
     const [pix, setPix] = useState('');
 
-
     const validarCadastro = async()=>{
 
         const verificaData = Date.parse(dataNascimento);
        
-        if(  isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, email, pix)){
+        if(  isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, pix),isValidateEmail(email)){
             if( await verificaCpfBanco(cpf)){
                addBanco(nome, cpf, telefone, email, dataNascimento);
                window.location.reload();
@@ -27,10 +26,6 @@ function App (){
         }
     }
 
-    /*                                        <input type="text"  id="cpf" name="cpf" placeholder="000.000.000-00" required
-                                        value={cpf}
-                                        onChange={(evento) => {setCpf( evento.target.value);}}
-                                         /> */
     return(
         <> 
                     <div className="conteiner">
@@ -68,15 +63,20 @@ function App (){
                                     </div>
                                     <div className="form-group">
                                         <label>Telefone: </label> <br/>
-                                        <input type="text" className="form-control" id="telefone" name="nome" placeholder="48 9 9999 9999" required
-                                        value={telefone}
-                                        onChange={(evento) => {setTelefone(evento.target.value);}}
-                                         />
+                                        <ReactInputMask
+                                            placeholder="(dd) 98765-4321"
+                                            mask="(99)99999-9999"
+                                            value={telefone}
+                                            onChange={(evento) => {setTelefone(evento.target.value);}}
+                                            className="form-control"
+                                            type="tel"
+                                            required
+                                        />
                                     </div>
                                     <div className="form-group">
                                         <label >Email: </label>
                                         <br/>
-                                        <input type="text" className="form-control" id="email" name="email" placeholder="email@email.com" 
+                                        <input type="email" className="form-control" id="email" name="email" placeholder="email@email.com" 
                                         value={email}
                                         onChange={(evento) => {setEmail(evento.target.value);}}
                                         required />
@@ -85,7 +85,7 @@ function App (){
                                         <label>PIX: </label> <br/>
                                         <input type="text" className="form-control" id="pix" name="pix" placeholder="PIX" 
                                         value={pix}
-                                        onChange={(evento) => {setPix(evento.target.value);}}
+                                        onChange={(evento) => {setPix( evento.target.value);}}
                                         required />
                                     </div>
                                     <div className="form-group text-center">

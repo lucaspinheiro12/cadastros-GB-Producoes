@@ -73,8 +73,18 @@ export function IsValidaPISPASEP(pis:string){
     return true;
 }
 
-export function camposValidos(nome:string, telefone:string, email:string, pix:string){
-    if( nome != "" && telefone != "" && email != "" && pix != ""){
+export function isValidateEmail(email:string) {
+    var re = /\S+@\S+\.\S+/;
+    if(! re.test(email)){
+        return false;
+
+    }else{
+        return true;
+    }
+  }
+
+export function camposValidos(nome:string, telefone:string, pix:string){
+    if( nome != "" && telefone != "" && pix != ""){
         return true;
     }else{
         return false;
