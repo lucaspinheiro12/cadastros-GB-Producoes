@@ -1,9 +1,7 @@
 import { useState } from "react";
 import './styleApp.css';
-import { addBanco, camposValidos, IsValidaPISPASEP, isValidCPF, verificaCpfBanco } from "./utiu/validadores";
-import { BASE_URL } from "./utiu/request";
-import axios from "axios";
-
+import { addBanco, camposValidos, isValidCPF, verificaCpfBanco } from "./utiu/validadores";
+import ReactInputMask from "react-input-mask"
 
 
 function App (){
@@ -28,6 +26,11 @@ function App (){
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
+
+    /*                                        <input type="text"  id="cpf" name="cpf" placeholder="000.000.000-00" required
+                                        value={cpf}
+                                        onChange={(evento) => {setCpf( evento.target.value);}}
+                                         /> */
     return(
         <> 
                     <div className="conteiner">
@@ -45,11 +48,16 @@ function App (){
                                     </div>
                                     <div className="form-group">
                                         <label>CPF: </label> 
-                                        <label className="separar">   Separar por . ou - </label> <br/>
-                                        <input type="text" className="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required
-                                        value={cpf}
-                                        onChange={(evento) => {setCpf( evento.target.value);}}
-                                         />
+                                        <br/>
+                                        <ReactInputMask
+                                            placeholder="123.123.123-12"
+                                            mask="999.999.999-99"
+                                            value={cpf}
+                                            onChange={(evento) => {setCpf( evento.target.value);}}
+                                            className="form-control"
+                                            type="number"
+                                            required
+                                        />
                                     </div>
                                     <div className="form-group">
                                         <label >Data Nascimento: </label> <br/>
