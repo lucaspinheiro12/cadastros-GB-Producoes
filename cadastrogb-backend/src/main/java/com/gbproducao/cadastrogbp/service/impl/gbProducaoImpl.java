@@ -1,11 +1,9 @@
 package com.gbproducao.cadastrogbp.service.impl;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gbproducao.cadastrogbp.cadastro.Pessoa;
@@ -42,12 +40,11 @@ public class gbProducaoImpl implements gbProducaoService {
 	@Override
 	public void update(Integer id, Pessoa pessoa) {
 		Pessoa pessoadb = findByid(id);
-		if(pessoadb.getId().equals(pessoa.getId())){
+		if(pessoadb.getCpf().equals(pessoa.getCpf())){
 			repository.save(pessoa);
 		}else {
 			throw new NegociosExeption("Os IDs para alteração são divergentes.");
-		}
-		
+		}	
 	}
 
 	@Override
@@ -67,5 +64,4 @@ public class gbProducaoImpl implements gbProducaoService {
 		List<Pessoa> pessoa = repository.findByCpfContains(cpf);
 		return pessoa;
 	}
-
 }

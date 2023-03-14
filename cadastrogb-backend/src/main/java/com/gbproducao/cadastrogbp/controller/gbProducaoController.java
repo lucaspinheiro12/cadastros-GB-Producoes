@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,13 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.gbproducao.cadastrogbp.cadastro.Pessoa;
 import com.gbproducao.cadastrogbp.service.gbProducaoService;
 
 
 @RestController
-@CrossOrigin(origins = "*")
 public class gbProducaoController extends BaseRestController {
 
 	@Autowired
@@ -43,9 +44,8 @@ public class gbProducaoController extends BaseRestController {
 	
 	@PostMapping("pessoas/inserir")
 	public ResponseEntity <Pessoa> insert(@RequestBody Pessoa pessoa) {
-		camadaNegocios.insert(pessoa);	  
+		camadaNegocios.insert(pessoa);
 		return ResponseEntity.ok(pessoa);
-		//tentar fazer em vez do ok um creat
 	}
 	
 	@PutMapping("pessoa/alterar/{id}")
