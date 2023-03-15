@@ -1,6 +1,6 @@
 import { useState } from "react";
 import './styleApp.css';
-import { addBanco, camposValidos, isValidateEmail, isValidCPF, verificaCpfBanco } from "./utiu/validadores";
+import { addBanco, camposValidos, isValidateEmail, isValidCPF } from "./utiu/validadores";
 import ReactInputMask from "react-input-mask"
 
 
@@ -12,15 +12,13 @@ function App (){
     const [email, setEmail] = useState('');
     const [pix, setPix] = useState('');
 
-    const validarCadastro = async()=>{
+    const validarCadastro =()=>{
 
         const verificaData = Date.parse(dataNascimento);
        
-        if(  isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, pix),isValidateEmail(email)){
-            if( await verificaCpfBanco(cpf)){
-               addBanco(nome, cpf, telefone, email, dataNascimento);
-               window.location.reload();
-            }  
+        if(isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, pix) && isValidateEmail(email)){
+            addBanco(nome, cpf, telefone, email, dataNascimento);
+            window.location.reload();  
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
