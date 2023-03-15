@@ -34,7 +34,11 @@ public class gbProducaoImpl implements gbProducaoService {
 
 	@Override
 	public void insert(Pessoa pessoa) {
-		repository.save(pessoa);	
+		if(findByCpf(pessoa) != null) {
+			throw new NegociosExeption("Este CPF já foi cadastrado");
+		}else {
+			repository.save(pessoa);
+		}	
 	}
 
 	@Override
@@ -64,4 +68,14 @@ public class gbProducaoImpl implements gbProducaoService {
 		List<Pessoa> pessoa = repository.findByCpfContains(cpf);
 		return pessoa;
 	}
+	
+	private Pessoa findByCpf(Pessoa cpf) {
+		Pessoa pessoa = repository.findByCpf(cpf.getCpf());
+		if(pessoa != null) {
+			return pessoa;
+		}else {
+			return null;
+		}	
+	}
+	
 }

@@ -19,5 +19,4 @@ public interface gbProducaoService {
 		List<Pessoa> findByNomeContains(String nome);
 		List<Pessoa> findByCpfContains(String cpf);
 
-
 }
