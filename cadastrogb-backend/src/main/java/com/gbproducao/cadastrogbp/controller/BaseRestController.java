@@ -1,5 +1,6 @@
 package com.gbproducao.cadastrogbp.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +27,11 @@ public abstract class BaseRestController {
 	public ResponseEntity<ApiErro> handlerUnexpectedBusinessException(NegociosExeption exception){
 		ApiErro error = new ApiErro("Ops, ocorreu um erro inesperado.");
 		return ResponseEntity.internalServerError().body(error);
+	}
+	
+	@ExceptionHandler(NegociosExeption.class)
+	public ResponseEntity<ApiErro> objectNotFoundException(NegociosExeption exception){
+		ApiErro error = new ApiErro(exception.getMessage());
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error) ;
 	}
 }
