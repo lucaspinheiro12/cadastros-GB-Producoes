@@ -1,0 +1,2 @@
+import { PessoaUn } from "./pessoa";
+

@@ -8,14 +8,13 @@ import './styles.css'
 function Pessoa() {
     const [busca, setBusca] = useState("");
     const [pessoas, setPessoas] = useState<PessoaUn[]>([]);
-
+    pessoas.sort((a, b) =>(a.nome < b.nome)? -1 : 1 )
     useEffect(() => {
-
-            let nome = busca;
-            axios.get(`${BASE_URL}/gbp/pessoa/filtrar?nome=${nome}` ).then(response => {
+            axios.get(`${BASE_URL}/gbp/pessoa/filtrar?nome=${busca}` ).then(response => {
                 setPessoas(response.data);
              })
     }, [busca]); 
+
     return (
         <>
             <div className="container">
