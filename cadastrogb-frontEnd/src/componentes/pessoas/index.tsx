@@ -1,13 +1,11 @@
 import axios from "axios";
 import { useEffect, useState, } from "react";
-import { PessoaUn } from "../../modelos/pessoa";
-import { BASE_URL } from "../../utiu/request";
+import { PessoaUn } from "../../util/pessoa";
+import { BASE_URL } from "../../util/request";
 import './styles.css'
 
 function Pessoa() {
     const [busca, setBusca] = useState("");
-
-
     const [pessoas, setPessoas] = useState<PessoaUn[]>([]);
 
     useEffect(() => {
@@ -15,47 +13,44 @@ function Pessoa() {
             let nome = busca;
             axios.get(`${BASE_URL}/gbp/pessoa/filtrar?nome=${nome}` ).then(response => {
                 setPessoas(response.data);
-                console.log(response.data)
              })
     }, [busca]); 
 
     return (
         <>
-            <div className="dsmeta-card">
-                <h2 className="dsmeta-sales-title">bucar por nome</h2>
-                <div>
-                    <div className="dsmeta-form-control-container">
-                        <input className="dsmeta-from-control" type="text"
+            <div className="container">
+                <h2 className="container-titulo-busca">Buscar</h2>
+                <div className="container-busca_input">
+                    <input className="busca_input-valor" type="text" placeholder="Pesquisar por nome"
                         value={busca}
                         onChange={(evento) => {setBusca(evento.target.value);}}
-                        />
-                    </div>
+                    />
                 </div>
-                <div>
-                    <table className="dsmeta-sales-table">
+                <div className="container-tabela">
+                    <table className="tabela-pessoas">
                         <thead>
                             <tr>
-                                <th className="show992">ID</th>
-                                <th className="show576">Nome</th>
-                                <th className="show992">CPF</th>
-                                <th className="show992">Email</th>
-                                <th className="show992">Telefone</th>
-                                <th className="show992">pix</th>
-                                <th className="show992">Data Nascimento</th>
+                                <th className="pessoas-dado">ID</th>
+                                <th className="pessoas-dado576">Nome</th>
+                                <th className="pessoas-dado">CPF</th>
+                                <th className="pessoas-dado">Email</th>
+                                <th className="pessoas-dado">Telefone</th>
+                                <th className="pessoas-dado">pix</th>
+                                <th className="pessoas-dado">Data Nascimento</th>     
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             {
                                 pessoas.map(colaborador =>{
                                     return (
                                         <tr key={colaborador.id}>
-                                            <td className="show992">{colaborador.id}</td>
+                                            <td className="pessoas-dado">{colaborador.id}</td>
                                             <td>{colaborador.nome}</td>
-                                            <td className="show992">{colaborador.cpf}</td>
-                                            <td className="show992">{colaborador.pis}</td>
-                                            <td className="show992"> {colaborador.telefone}</td>
-                                            <td className="show992"> {colaborador.pix}</td>
-                                            <td className="show992">{colaborador.dataNascimento} </td>
+                                            <td className="pessoas-dado">{colaborador.cpf}</td>
+                                            <td className="pessoas-dado">{colaborador.email}</td>
+                                            <td className="pessoas-dado"> {colaborador.telefone}</td>
+                                            <td className="pessoas-dado"> {colaborador.pix}</td>
+                                            <td className="pessoas-dado">{colaborador.dataNascimento} </td>           
                                         </tr> 
                                     )   
                                 })
@@ -68,4 +63,4 @@ function Pessoa() {
     )
 }
 
-export default Pessoa
+export default Pessoa;

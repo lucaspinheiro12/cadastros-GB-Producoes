@@ -20,11 +20,11 @@ a:visited {
   text-decoration: none;
 }
 
-#sales {
+.app_pessoas-tabela {
   padding: 40px 10px;
 }
 
-.dsmeta-container {
+.app_pessoas-tabela-container{
   width: 100%;
   max-width: 90%;
   margin: 0 auto;

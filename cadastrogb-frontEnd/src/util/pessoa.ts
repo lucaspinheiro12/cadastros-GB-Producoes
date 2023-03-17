@@ -3,7 +3,7 @@ export type PessoaUn ={
     nome: string;
     cpf: string;
     telefone: string;
-    pis: string;
+    email: string;
     dataNascimento: string;
     pix: string;
 }
