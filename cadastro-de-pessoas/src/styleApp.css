@@ -9,36 +9,32 @@
     border: 15px solid #111;
     width: 50%;
 }
-.titulo{   
+.formulario_titulo{   
     margin-top: 6%;
     margin-bottom: 5%;
 }
 
-.texto{
+.formulario_titulo-texto{
     font-size:150% ;
 }
 
-.card-boby{
+.formulario_grupo{
     display: flex;
     flex-direction: column;
     margin-top: 40px;
 }
 
-.form-group{
+.formulario_grupo_div_input{
 margin-top: 7%;
 }
-.separar{
-    color: FF0000;
-    font-weight: bold;
-}
 
-.form-control{
+.input-valor{
    margin-top: 2%;
    width: 70%;
    height:25px;
    text-align: center;
 }
-.btn-primary{
+.texto-centro-botao{
     width: 30%;
     height: 50px;
     margin-bottom: 3%;

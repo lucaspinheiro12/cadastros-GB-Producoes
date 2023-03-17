@@ -2,8 +2,10 @@ import axios from "axios"
 import { BASE_URL } from "./request"
 
 export function isValidCPF(cpf:string) {
-    if (typeof cpf !== "string") return false
-    cpf = cpf.replace(/[\s.-]*/igm, '')
+    if (typeof cpf !== "string"){
+        return false;
+    } 
+    cpf = cpf.replace(/[\s.-]*/igm, '');
     if (
         !cpf ||
         cpf.length != 11 ||
@@ -18,23 +20,31 @@ export function isValidCPF(cpf:string) {
         cpf == "88888888888" ||
         cpf == "99999999999" 
     ) {
-        return false
+        return false;
     }
-    var soma = 0
-    var resto
-    for (var i = 1; i <= 9; i++) 
-        soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i)
-    resto = (soma * 10) % 11
-    if ((resto == 10) || (resto == 11))  resto = 0
-    if (resto != parseInt(cpf.substring(9, 10)) ) return false
-    soma = 0
-    for (var i = 1; i <= 10; i++) 
-        soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i)
-    resto = (soma * 10) % 11
-    if ((resto == 10) || (resto == 11))  resto = 0
-    if (resto != parseInt(cpf.substring(10, 11) ) ) return false
-    return true
-}
+    let soma = 0;
+    let resto;
+    for (let i = 1; i <= 9; i++) {
+        soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+    }    
+    resto = (soma * 10) % 11;
+    if ((resto == 10) || (resto == 11)){
+        resto = 0;
+    }  
+    if (resto != parseInt(cpf.substring(9, 10)) ){
+        return false;
+    } 
+    soma = 0;
+    for (let i = 1; i <= 10; i++) {
+        soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+    }  
+    resto = (soma * 10) % 11;
+    if ((resto == 10) || (resto == 11))  resto = 0;
+    if (resto != parseInt(cpf.substring(10, 11) ) ){
+        return false;
+    } 
+    return true;
+};
 
 export function IsValidaPISPASEP(pis:string){
 
@@ -49,29 +59,29 @@ export function IsValidaPISPASEP(pis:string){
 
     if (pis == "" || pis ==null) {
         return false;
-    }
+    };
 
-    for(i=0;i<=9;i++) {
+    for( i=0;i<=9;i++) {
         let resultado = parseInt(pis.slice(i, i+1)) * parseInt(ftap. slice(i, i+1));
         total += resultado;
-    }
+    };
 
     resto = (total % 11)
 
     if (resto != 0){
         resto=11-resto;
-    }
+    };
 
     if (resto==10 || resto==11) {
         strResto = resto+"";
         resto = parseInt(strResto.slice(1,2));
-    }
+    };
 
     if (resto!=parseInt(pis.slice(10,11))){
         return false;
-    }
+    };
     return true;
-}
+};
 
 export function isValidateEmail(email:string) {
     var re = /\S+@\S+\.\S+/;
@@ -81,7 +91,7 @@ export function isValidateEmail(email:string) {
     }else{
         return true;
     }
-  }
+  };
 
 export function camposValidos(nome:string, telefone:string, pix:string){
     if( nome != "" && telefone != "" && pix != ""){
@@ -89,26 +99,25 @@ export function camposValidos(nome:string, telefone:string, pix:string){
     }else{
         return false;
     }
-}
+};
 
-export async function addBanco(nome:string, cpf:string, telefone:string, email:string, dataNascimento:string)  {
-    
+export async function addBanco(nome:string, cpf:string, telefone:string, email:string, dataNascimento:string, pix:string)  {
     const pessoa = {
         id: "" ,
         nome: nome,
         cpf: cpf,
         telefone: telefone,
         email: email,
-        dataNascimento: dataNascimento
-    }
+        dataNascimento: dataNascimento,
+        pix: pix
+    };
     try{
         await axios.post(`${BASE_URL}/gbp/pessoas/inserir`, pessoa);
         alert("Cadastro concluido com sucesso"); 
     }catch{
-        alert("Esse cpf já foi cadastrado")
+        alert("Esse cpf já foi cadastrado");
+        return;
     }
-
-
-}
+};
 
 

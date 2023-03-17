@@ -17,82 +17,79 @@ function App (){
         const verificaData = Date.parse(dataNascimento);
        
         if(isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, pix) && isValidateEmail(email)){
-            addBanco(nome, cpf, telefone, email, dataNascimento);
+            addBanco(nome, cpf, telefone, email, dataNascimento, pix);
             window.location.reload();  
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");
         }
     }
-
     return(
         <> 
-                    <div className="conteiner">
-                        <div className="formulario">
-                            <div className="titulo">
-                                <h3 className="texto">Cadastro de Colaborador</h3>
-                            </div>
-                                <div className="card-boby">
-                                    <div className="form-group">
-                                        <label >Nome Completo:</label> <br/>
-                                        <input type="text" className="form-control" id="nome" name="nome" placeholder="Seu nome" required 
-                                        value={nome}
-                                        onChange={(evento) => {setNome(evento.target.value);}}
-                                         />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>CPF: </label> 
-                                        <br/>
-                                        <ReactInputMask
-                                            placeholder="123.123.123-12"
-                                            mask="999.999.999-99"
-                                            value={cpf}
-                                            onChange={(evento) => {setCpf( evento.target.value);}}
-                                            className="form-control"
-                                            type="text"
-                                            required
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label >Data Nascimento: </label> <br/>
-                                        <input type="date" className="form-control" id="data" name="data"  required
-                                        value={dataNascimento}
-                                        onChange={(evento) => {setDataNascimento(evento.target.value);}}
-                                         />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Telefone: </label> <br/>
-                                        <ReactInputMask
-                                            placeholder="(dd) 98765-4321"
-                                            mask="(99)99999-9999"
-                                            value={telefone}
-                                            onChange={(evento) => {setTelefone(evento.target.value);}}
-                                            className="form-control"
-                                            type="tel"
-                                            required
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label >Email: </label>
-                                        <br/>
-                                        <input type="email" className="form-control" id="email" name="email" placeholder="email@email.com" 
-                                        value={email}
-                                        onChange={(evento) => {setEmail(evento.target.value);}}
-                                        required />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>PIX: </label> <br/>
-                                        <input type="text" className="form-control" id="pix" name="pix" placeholder="PIX" 
-                                        value={pix}
-                                        onChange={(evento) => {setPix( evento.target.value);}}
-                                        required />
-                                    </div>
-                                    <div className="form-group text-center">
-                                        <button type="button" onClick={validarCadastro}
-                                        className="btn-primary">Enviar</button>
-                                    </div>
-                               </div>
-                        </div>    
-                </div>                                                   
+            <div className="conteiner">
+                <div className="formulario">
+                    <div className="formulario_titulo">
+                        <h3 className="formulario_titulo-texto">Cadastro de Colaborador</h3>
+                    </div>
+                    <div className="formulario_grupo">
+                        <div className="formulario_grupo_div_input">
+                            <label >Nome Completo:</label> <br/>
+                            <input type="text" className="input-valor" id="nome" name="nome" placeholder="Seu nome" required 
+                                value={nome}
+                                onChange={(evento) => {setNome(evento.target.value);}}
+                            />
+                        </div>
+                        <div className="formulario_grupo_div_input">
+                            <label>CPF: </label> <br/>       
+                            <ReactInputMask
+                                placeholder="123.123.123-12"
+                                mask="999.999.999-99"
+                                value={cpf}
+                                onChange={(evento) => {setCpf( evento.target.value);}}
+                                className="input-valor"
+                                type="text"
+                                required
+                            />
+                        </div>
+                        <div className="formulario_grupo_div_input">
+                            <label >Data Nascimento: </label> <br/>
+                                <input type="date" className="input-valor" id="data" name="data"  required
+                                    value={dataNascimento}
+                                    onChange={(evento) => {setDataNascimento(evento.target.value);}}
+                                />
+                        </div>
+                        <div className="formulario_grupo_div_input">
+                            <label>Telefone: </label> <br/>
+                                <ReactInputMask
+                                    placeholder="(dd) 98765-4321"
+                                    mask="(99)99999-9999"
+                                    value={telefone}
+                                    onChange={(evento) => {setTelefone(evento.target.value);}}
+                                    className="input-valor"
+                                    type="tel"
+                                    required
+                                />
+                        </div>
+                        <div className="formulario_grupo_div_input">
+                            <label >Email: </label> <br/>
+                            <input type="email" className="input-valor" id="email" name="email" placeholder="email@email.com" 
+                                value={email}
+                                onChange={(evento) => {setEmail(evento.target.value);}}
+                                required />
+                        </div>
+                        <div className="formulario_grupo_div_input">
+                            <label>PIX: </label> <br/>
+                            <input type="text" className="input-valor" id="pix" name="pix" placeholder="PIX" 
+                                value={pix}
+                                onChange={(evento) => {setPix( evento.target.value);}}
+                                required />
+                        </div>
+                        <div className="formulario_grupo_div_input texto-centro">
+                            <button type="button" onClick={validarCadastro}
+                                className="texto-centro-botao">Enviar</button>
+                        </div>
+                    </div>
+                </div>    
+            </div>                                                   
         </>
     )
 }
