@@ -4,6 +4,7 @@ import { PessoaUn } from "../../util/pessoa";
 import { BASE_URL } from "../../util/request";
 import './styles.css'
 
+
 function Pessoa() {
     const [busca, setBusca] = useState("");
     const [pessoas, setPessoas] = useState<PessoaUn[]>([]);
@@ -15,7 +16,6 @@ function Pessoa() {
                 setPessoas(response.data);
              })
     }, [busca]); 
-
     return (
         <>
             <div className="container">
@@ -31,7 +31,7 @@ function Pessoa() {
                         <thead>
                             <tr>
                                 <th className="pessoas-dado">ID</th>
-                                <th className="pessoas-dado576">Nome</th>
+                                <th className="pessoas-dado">Nome</th>
                                 <th className="pessoas-dado">CPF</th>
                                 <th className="pessoas-dado">Email</th>
                                 <th className="pessoas-dado">Telefone</th>
@@ -43,15 +43,31 @@ function Pessoa() {
                             {
                                 pessoas.map(colaborador =>{
                                     return (
-                                        <tr key={colaborador.id}>
-                                            <td className="pessoas-dado">{colaborador.id}</td>
-                                            <td>{colaborador.nome}</td>
-                                            <td className="pessoas-dado">{colaborador.cpf}</td>
-                                            <td className="pessoas-dado">{colaborador.email}</td>
-                                            <td className="pessoas-dado"> {colaborador.telefone}</td>
-                                            <td className="pessoas-dado"> {colaborador.pix}</td>
-                                            <td className="pessoas-dado">{colaborador.dataNascimento} </td>           
-                                        </tr> 
+                                    <> 
+                                    <tr className="mobile" key={colaborador.id}>
+                                        <th className="mobile-th">ID: </th>
+                                        <th className="pessoas-dado">
+                                            {colaborador.id}</th>
+                                        <th className="mobile-th">nome:</th>
+                                        <th className="pessoas-dado">  
+                                            {colaborador.nome}</th>
+                                        <th className="mobile-th">cpf:</th>
+                                        <th className="pessoas-dado"> 
+                                            {colaborador.cpf}</th>
+                                        <th className="mobile-th">email:</th>
+                                        <th className="pessoas-dado">
+                                            {colaborador.email}</th>
+                                        <th className="mobile-th">telefone:</th>
+                                        <th className="pessoas-dado">
+                                            {colaborador.telefone}</th>
+                                        <th className="mobile-th">pix:</th>
+                                        <th className="pessoas-dado">
+                                            {colaborador.pix}</th>
+                                        <th className="mobile-th">Data Nascimento:</th>
+                                        <th className="pessoas-dado">
+                                            {colaborador.dataNascimento} </th>
+                                    </tr>
+                                        </> 
                                     )   
                                 })
                              } 

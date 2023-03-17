@@ -63,36 +63,46 @@
     display: flex;
     justify-content: center;
 }
-.tabela-pessoas-botao-cel{
+
+.mobile-th{
     display: none;
 }
 
-@media (max-width: 576px) {
-    .pessoas-dado576 {
-        display: table-cell;
+@media (max-width: 850px) {
+    .tabela-pessoas thead{
+        display: none;
     }
-
-    .dsmeta-card {
+    .pessoas-dado{
+        padding:2% 0 0 2%;
+    }
+    s
+    .container {
         padding: 35px;
     }
 
     .tabela-pessoas tbody tr {
-        height: 55px;
+        width: auto;
+        height: auto;
+        border: 2px solid #5f6e82;
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        margin: 5% 0 5% 0;
     }
 
-    .tabela-pessoas tbody {
-        font-size: 18px;
+    .mobile-th{
+        width: 100%;
+        border-top: 1px solid #5f6e82; 
+        display: flex;
+        padding:2% 0 0 2%;
     }
-   
 }
 
-@media (max-width: 992px) {
-    .pessoas-dado576 {
-        display: none;
+@media (max-width: 1000px) {
+    .tabela-pessoas thead {
+        font-size: 16px;
     }
-
-    .pessoas-dado {
-        display: none;
+    .tabela-pessoas tbody {
+        font-size: 12px;
     }
-
 }
