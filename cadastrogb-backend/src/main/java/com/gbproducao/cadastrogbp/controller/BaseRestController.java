@@ -1,6 +1,7 @@
 package com.gbproducao.cadastrogbp.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,6 @@ public abstract class BaseRestController {
 	@ExceptionHandler(NegociosExeption.class)
 	public ResponseEntity<ApiErro> objectNotFoundException(NegociosExeption exception){
 		ApiErro error = new ApiErro(exception.getMessage());
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error) ;
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
 	}
 }

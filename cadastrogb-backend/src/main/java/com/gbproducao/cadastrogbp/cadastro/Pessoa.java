@@ -5,9 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-//Pessoas
 @Entity
-
 public class Pessoa {
 	
 	@Id
@@ -20,11 +18,17 @@ public class Pessoa {
 	private String dataNascimento;
 	private String pix;
 
-	public Pessoa() {
-		
+	public Pessoa() {	
 	}
 
-	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getPix() {
 		return pix;
 	}
@@ -67,13 +71,6 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 
-	public String getEString() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public String getDataNascimento() {
 		return dataNascimento;

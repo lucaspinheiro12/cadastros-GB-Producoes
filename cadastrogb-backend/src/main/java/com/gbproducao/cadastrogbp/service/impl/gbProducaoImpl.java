@@ -36,19 +36,17 @@ public class gbProducaoImpl implements gbProducaoService {
 	public void insert(Pessoa pessoa) {
 		if(findByCpf(pessoa) != null) {
 			throw new NegociosExeption("Este CPF já foi cadastrado");
-		}else {
-			repository.save(pessoa);
-		}	
+		}
+		repository.save(pessoa);
 	}
 
 	@Override
 	public void update(Integer id, Pessoa pessoa) {
 		Pessoa pessoadb = findByid(id);
-		if(pessoadb.getCpf().equals(pessoa.getCpf())){
-			repository.save(pessoa);
-		}else {
-			throw new NegociosExeption("Os IDs para alteração são divergentes.");
-		}	
+		if( !pessoadb.getCpf().equals(pessoa.getCpf())){
+			throw new NegociosExeption("Os IDs para alteração são divergentes.");	
+		}
+		repository.save(pessoa);		
 	}
 
 	@Override

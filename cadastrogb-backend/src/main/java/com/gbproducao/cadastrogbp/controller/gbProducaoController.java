@@ -1,12 +1,9 @@
 package com.gbproducao.cadastrogbp.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.gbproducao.cadastrogbp.cadastro.Pessoa;
 import com.gbproducao.cadastrogbp.service.gbProducaoService;
@@ -27,15 +23,12 @@ public class gbProducaoController extends BaseRestController {
 	private gbProducaoService camadaNegocios;
 	
 	
-	//pega os itens do banco
 	@GetMapping("pessoas")
 	public ResponseEntity<List<Pessoa>> findAll() {
 		List<Pessoa> pessoas = camadaNegocios.findAll();
 		return ResponseEntity.ok(pessoas);
 	}
 	
-	//pegar um so
-	//trocar por nome
 	@GetMapping("pessoas/procurar")
 	public ResponseEntity <Pessoa> findAll(@RequestParam(value = "id", defaultValue = "") Integer id) {
 		 Pessoa pessoa = camadaNegocios.findByid(id); 
