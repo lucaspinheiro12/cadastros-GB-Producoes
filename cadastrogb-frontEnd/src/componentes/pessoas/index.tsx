@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState, } from "react";
 import { PessoaUn } from "../../util/pessoa";
 import { BASE_URL } from "../../util/request";
+import BotaoEditar from "../botoes/botao-editar";
+import BotaoExcluir from "../botoes/botao-excluir";
 import './styles.css'
 
 
@@ -29,13 +31,13 @@ function Pessoa() {
                     <table className="tabela-pessoas">
                         <thead>
                             <tr>
-                                <th className="pessoas-dado">ID</th>
+                                <th className="pessoas-dado"></th>
                                 <th className="pessoas-dado">Nome</th>
                                 <th className="pessoas-dado">CPF</th>
                                 <th className="pessoas-dado">Email</th>
                                 <th className="pessoas-dado">Telefone</th>
                                 <th className="pessoas-dado">pix</th>
-                                <th className="pessoas-dado">Data Nascimento</th>     
+                                <th className="pessoas-dado">Data Nascimento</th>  
                             </tr>
                         </thead>
                         <tbody >
@@ -44,27 +46,47 @@ function Pessoa() {
                                     return (
                                     <> 
                                     <tr className="mobile" key={colaborador.id}>
-                                        <th className="mobile-th">ID: </th>
-                                        <th className="pessoas-dado">
-                                            {colaborador.id}</th>
+                                        <th className="mobile-th"> </th>  
+
+                                        <div className="botao-editar">
+                                            <BotaoEditar id={colaborador.id} nome={colaborador.nome} cpf={colaborador.cpf}
+                                             telefone={colaborador.telefone} email={colaborador.email}
+                                              dataNascimento={colaborador.dataNascimento} pix={colaborador.pix}  />
+                                            </div>
+                                            
                                         <th className="mobile-th">nome:</th>
+
                                         <th className="pessoas-dado">  
                                             {colaborador.nome}</th>
+
                                         <th className="mobile-th">cpf:</th>
+
                                         <th className="pessoas-dado"> 
                                             {colaborador.cpf}</th>
+
                                         <th className="mobile-th">email:</th>
+
                                         <th className="pessoas-dado">
                                             {colaborador.email}</th>
+
                                         <th className="mobile-th">telefone:</th>
+
                                         <th className="pessoas-dado">
                                             {colaborador.telefone}</th>
+
                                         <th className="mobile-th">pix:</th>
+
                                         <th className="pessoas-dado">
                                             {colaborador.pix}</th>
+
                                         <th className="mobile-th">Data Nascimento:</th>
+
                                         <th className="pessoas-dado">
                                             {colaborador.dataNascimento} </th>
+                                            
+                                            <div className="botao-editar">
+                                                <BotaoExcluir pessoaId={colaborador.id} />
+                                            </div>
                                     </tr>
                                         </> 
                                     )   

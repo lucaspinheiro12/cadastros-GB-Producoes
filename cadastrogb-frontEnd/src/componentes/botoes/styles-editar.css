@@ -1,0 +1,32 @@
+.botao_editar{
+    height: 45px;
+    width: 45px;
+    background: rgba(125, 129, 252, 0.052);
+    border: 1px solid #3C4EF5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .botao_editar img {
+    width: 40%;
+}
+@media (max-width: 850px){
+    .botao_editar{
+        height: 40px;
+        width: 60px;
+        margin: 1% 0 1% 0;
+    }
+}
+    
+@media (min-width: 851px) and (max-width: 1000px) {
+    .botao_editar{
+        height: 30px;
+        width: 30px;
+    } 
+    .botao_editar img {
+        width: 70%;
+    }
+}

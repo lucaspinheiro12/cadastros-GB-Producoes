@@ -59,7 +59,8 @@
     background-color: #242c3b;
 }
 
-.dsmeta-red-btn-container {
+.botao-editar {
+    margin-top: 25%;
     display: flex;
     justify-content: center;
 }
@@ -96,13 +97,22 @@
         display: flex;
         padding:2% 0 0 2%;
     }
+    .botao-editar{
+        border-top: 1px solid #5f6e82;
+        margin-top: 1%;
+        width: 100%; 
+    }
 }
 
-@media (max-width: 1000px) {
+@media( min-width:851px ) and ( max-width: 1000px ) {
     .tabela-pessoas thead {
         font-size: 16px;
     }
     .tabela-pessoas tbody {
         font-size: 12px;
+    }
+    .botao-editar {
+        margin-top: 50%;
+
     }
 }
