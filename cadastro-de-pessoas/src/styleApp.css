@@ -15,6 +15,10 @@
 }
 
 .formulario_titulo-texto{
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    color: #000000;
     font-size:150% ;
 }
 
@@ -25,22 +29,34 @@
 }
 
 .formulario_grupo_div_input{
-margin-top: 7%;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    color: #000000;
+    margin-top: 7%;
 }
 
 .input-valor{
-   margin-top: 2%;
-   width: 70%;
-   height:25px;
-   text-align: center;
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: smaller;
+    color: #000000;
+    background-color: #7d8d9d;
+    margin-top: 2%;
+    width: 70%;
+    height:25px;
+    text-align: center;
 }
 .texto-centro-botao{
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
     width: 30%;
     height: 50px;
     margin-bottom: 3%;
-    background-color: #0000FF;
-    color: #fff;
-    border-radius: 10px;
+    background-color: #7d8d9d;
+    color: #000000;
+    border-radius: 10px  ;
 }
 @media screen and (max-width: 768px) {
     .formulario{
