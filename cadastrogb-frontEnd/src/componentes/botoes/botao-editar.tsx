@@ -6,12 +6,9 @@ import  editar  from "../../assests/img/editar.png"
 import "./styles-editar.css";
 import { PessoaUn } from "../../util/pessoa";
 
-type Props = {
-    pessoaId: number;  
-}
 
 function editarBanco (pessoaValor:PessoaUn) {
-    const resposta = confirm("deseja editar?")
+    const resposta = confirm(`deseja editar  ${pessoaValor.nome}?`)
     if(!resposta){
         return;
     }
@@ -33,16 +30,16 @@ function editarBanco (pessoaValor:PessoaUn) {
         pix: pix
     }
     axios.put(`${BASE_URL}/gbp/pessoa/alterar/${pessoa.id}`,pessoa).then( resposta => {
-        toast.info("Alterado com sucesso")
+        toast.info(`${pessoa.nome} Alterado com sucesso`)
     })
 
 }
 
-function BotaoEditar( pessoaId : PessoaUn){
+function BotaoEditar( pessoa : PessoaUn){
     return (
         <>
             <div className="botao_editar" onClick = {() => 
-                editarBanco(pessoaId)}>
+                editarBanco(pessoa)}>
                 <img src={editar} alt="editar" />
             </div>
         </>

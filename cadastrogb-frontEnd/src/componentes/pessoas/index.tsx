@@ -85,7 +85,9 @@ function Pessoa() {
                                             {colaborador.dataNascimento} </th>
                                             
                                             <div className="botao-editar">
-                                                <BotaoExcluir pessoaId={colaborador.id} />
+                                                <BotaoExcluir id={colaborador.id} nome={colaborador.nome} cpf={colaborador.cpf}
+                                             telefone={colaborador.telefone} email={colaborador.email}
+                                              dataNascimento={colaborador.dataNascimento} pix={colaborador.pix} />
                                             </div>
                                     </tr>
                                         </> 
