@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, } from "react";
+import { toast } from "react-toastify";
 import { PessoaUn } from "../../util/pessoa";
 import { BASE_URL } from "../../util/request";
 import BotaoEditar from "../botoes/botao-editar";
@@ -61,7 +62,9 @@ function Pessoa() {
 
                                         <th className="mobile-th">cpf:</th>
 
-                                        <th className="pessoas-dado"> 
+                                        <th className="pessoas-dado cpf" onClick={() =>{navigator.clipboard.writeText(colaborador.cpf)
+                                        toast.info(` CPF de ${colaborador.nome}, copiado com sucesso `)
+                                        }}> 
                                             {colaborador.cpf}</th>
 
                                         <th className="mobile-th">email:</th>

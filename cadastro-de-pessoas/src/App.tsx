@@ -12,12 +12,13 @@ function App (){
     const [email, setEmail] = useState('');
     const [pix, setPix] = useState('');
 
+    const separaData = dataNascimento.split("-");
+    const formataData = separaData[2] +"/" + separaData[1] +"/" +separaData[0]
     const validarCadastro =()=>{
 
-        const verificaData = Date.parse(dataNascimento);
        
-        if(isValidCPF(cpf) &&  verificaData &&  camposValidos(nome, telefone, pix) && isValidateEmail(email)){
-            addBanco(nome, cpf, telefone, email, dataNascimento, pix);
+        if(isValidCPF(cpf) &&  formataData &&  camposValidos(nome, telefone, pix) && isValidateEmail(email)){
+            addBanco(nome, cpf, telefone, email, formataData, pix);
             window.location.reload();  
         }else{
             alert("Algo deu errado, verifique seus dados se estão corretos.");

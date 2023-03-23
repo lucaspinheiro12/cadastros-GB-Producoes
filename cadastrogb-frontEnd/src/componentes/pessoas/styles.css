@@ -58,6 +58,9 @@
 .tabela-pessoas tbody tr:nth-child(odd) {
     background-color: #242c3b;
 }
+.cpf{
+    cursor: pointer;
+}
 
 .botao-editar {
     margin-top: 25%;
