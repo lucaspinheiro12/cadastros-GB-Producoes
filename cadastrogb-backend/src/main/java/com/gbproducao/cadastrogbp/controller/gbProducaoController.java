@@ -3,6 +3,8 @@ package com.gbproducao.cadastrogbp.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +40,7 @@ public class gbProducaoController extends BaseRestController {
 	@PostMapping("pessoas/inserir")
 	public ResponseEntity <Pessoa> insert(@RequestBody Pessoa pessoa) {
 		camadaNegocios.insert(pessoa);
-		return ResponseEntity.ok(pessoa);
+		return  new ResponseEntity(pessoa, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("pessoa/alterar/{id}")
